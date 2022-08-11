@@ -1,0 +1,641 @@
+:root{
+  --first-alpha-color: rgba(217, 0, 98, 0.75);
+  --white-color: #fff;
+  --black-color: rgba(0, 0, 0, 0.5); 
+  --max-widht: 1200px;
+  --header-height:4rem;
+  --second-color:#14192d;
+  --third-color:#e8e4d9;
+  --first-color:purple;
+}
+
+html {
+    box-sizing: border-box;
+    font-family: "Raleway" , sans-serif;
+    font-size: 16px;
+    scroll-behavior: smooth;
+  }
+  
+  
+  
+  body {
+    margin: 0;
+    overflow-x: hidden;
+    color:black;
+  }
+
+  a{
+    color: black;
+    transition: all 0.5s ease;
+  }
+
+  a:hover{
+    opacity: 0.75;
+  }
+
+  h1 {
+    margin: 0;
+    font-size: 2rem;
+  }
+  
+  h2 {
+    margin: 0;
+    font-size: 1.5rem;
+  }
+  
+  h3 {
+    margin: 0;
+    font-size: 1.25rem;
+  }
+  
+  h4 {
+    margin: 0;
+    font-size: 1rem;
+  }
+  
+  h5 {
+    margin: 0;
+    font-size: 0.85rem;
+  }
+  
+  h6 {
+    margin: 0;
+    font-size: 0.7rem;
+  }
+  
+  img {
+    max-width: 100%;
+    height: auto;
+  }
+  
+  p {
+    line-height: 1.6;
+  }
+  
+  /* Hero Image  */
+  .hero-image-lz{
+    background-image: url(../images/led-hero.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    transition: transform 2s;
+  }
+
+  .hero-image-lz:hover{
+    transform:scale(1.10) ;
+  }
+  /* .hero-image-contenido{
+    position: absolute;
+    top: 250px;
+    left: 40px;
+  } */
+
+  .hero-image-opaca{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+
+
+  .hero-image-titulo{
+    font-size: 6.5vh;
+    color: #e8e4d9;
+  }
+  /* utilidades generales */
+  
+  .btn{
+    border-radius: 100px;
+    padding: 1rem;
+    font-size: 25px;
+    letter-spacing: 2px;
+    display: inline-block;
+    width: 200px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: whitesmoke;
+    background-color: #636363;
+    background-image: linear-gradient(to bottom, purple, #000);
+    text-transform: uppercase;
+  }
+
+  .btn:hover{
+    background-image: linear-gradient(to bottom, purple, #000);
+  }
+  
+  
+  .container{
+    margin-left: auto;
+    margin-right: auto;
+    max-width: var(--max-widht);
+  }
+
+
+  .none{
+    display: none;
+  }
+
+
+  .section-title{
+    border-top: thin solid goldenrod ;
+    border-bottom: thin solid goldenrod ;
+    width: 250px;
+    margin: 2rem auto;
+    padding: 0.5rem 1rem;
+    text-align: center;
+  }
+
+
+  .disco-card{
+    margin: 1rem auto;
+    padding: 1rem;
+    text-align: center;
+  }
+
+
+  .disco-card img {
+    margin-bottom: 1rem;
+  }
+
+
+
+  /* inicio con hero image*/
+
+
+
+  /* header mobile */
+  .header{
+    position: fixed;
+    left:0;
+    bottom: 0;
+    z-index: 100;
+    width: 100%;
+    height: var(--header-height);
+    background-color: var(--second-color);
+  }
+
+  .header >.container{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+  }
+
+  @media screen and (min-width: 768px) {
+
+    .perfil-cards{
+      display: grid;
+      grid-template-columns: repeat(2, 48%);
+      justify-content: space-between;
+    }
+    .merch >.container{
+      display: grid;
+      grid-template-columns: repeat(2, 50%);
+    }
+    .merch .section-title{
+      grid-column: span 2;
+    }
+    .merch-modal{
+      display: flex;
+      flex-direction: row;
+      max-width: 800px;
+      margin: 1rem;
+    }
+
+    .merch-info{
+      margin-left: 1rem;
+      align-self: center;
+    }
+
+    .discografia > .container{
+      display: grid;
+      grid-template-columns: repeat(2, 45%);
+      justify-content: space-between;
+      align-content: center;
+    }
+    .discografia .section-title{
+      grid-column: span 2;
+    }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .header{
+      position: sticky;
+      top: 0;
+      padding: 0.5em;
+      height:calc(var(--header-height) -0.5rem);
+    }
+
+    .perfil-cards{
+      grid-template-columns: repeat(4, 24%);
+    }
+    
+    .merch >.container{
+      display: grid;
+      grid-template-columns: repeat(3, 30%);
+    }
+    .merch .section-title{
+      grid-column: span 3;
+    }
+    .historia{
+      display: grid;
+      grid-template-columns: repeat(3, 30%);
+      justify-content: space-between;
+      align-content: center;
+    }
+
+    .discografia > .container{
+      display: grid;
+      grid-template-columns: repeat(3, 30%);
+      justify-content: space-between;
+      align-content: center;
+    }
+    .discografia .section-title{
+      grid-column: span 3;
+    }
+
+    
+  }
+  
+    
+
+  .background-greyhard{
+    background-color: #ccc;
+   }
+
+  /* menu mobile */
+  .menu{
+    position: fixed; /* poniedo fixed, pierdo ancho y alto, tengo que darselas */
+    left: 0;
+    bottom: var(--header-height);/* uso la misma medida que el header */
+    width: 100%;
+    background-color: var(--first-color);
+    display: flex;
+    flex-direction: column;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.5s ease;
+}
+
+
+.menu.esta-activo{
+  opacity: 1; 
+  pointer-events: auto;
+}
+ 
+.menu a{
+    padding: 1rem;
+    font-size: 1.5rem;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    color: var(--first-color);
+}
+
+.menu a:hover{
+    color: var(--third-color);
+    background-color: var(--first-color);
+}
+
+@media screen and (min-width: 1024px) {
+  .menu-btn{
+    display: none;
+  }
+
+  .menu{
+    position: static;
+    width: auto;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: auto;
+    background-color: transparent;
+  }
+
+  .menu a{
+    padding: 0 1rem;
+  }
+
+   
+
+  .menu a:hover{
+    background-color: transparent;
+    color: goldenrod;
+  }
+}
+
+
+.merch-card{
+  position: relative;
+  width: 100%;
+  margin: 0 auto;
+  display: block;
+}
+
+.merch-card img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.merch-card-info{
+  position: absolute;/* le pongo absoluto para que este contenedor este dentro del padre */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--first-alpha-color);
+  color: var(--white-color);
+  padding: 1rem;
+  opacity: 0; /* opacidad 0 para que se active en el estado hover */
+  pointer-events: none; /* la desactivo para que se active solo en hover */
+  transition: all 1s ease-in-out;
+}
+.merch-card:hover .merch-card-info{
+  opacity: 1;/* pongo 1 asi se ve en este estado */
+  pointer-events: auto;
+}
+
+
+
+
+.merch-modal{
+  background-color: goldenrod;
+  padding: 1rem;
+  max-width: 400px;
+  display: flex;
+  flex-direction: column;
+}
+.merch-modal h3{
+  border-bottom: medium solid purple;
+  padding: .5rem 0;
+  margin: 1rem 0;
+}
+
+.merch-details{
+  display: grid;
+  grid-template-columns: 40% 60%; /* probar % hasta encontrar que quede bien jajaj*/
+  
+}
+
+.merch-details b{
+  color: purple;
+}
+
+.merch-card-info > div{
+  border:thin solid var(--white-color);
+  padding: 1rem;
+  width: 100%;
+  height: 100%;
+}
+
+.menu-btn{ /* clase para el boton mobile */
+    background-color:var(--third-color);
+    outline: thin solid var(--second-color);
+    border: 0;/* para quitar el borde del boton */
+    cursor: pointer;
+}
+
+.menu-btn svg{
+    fill: var(--first-color); /* me sirve el fill para pintar el interior de los iconos svg (preguntar si sirve para otro formato) */
+}
+
+
+
+
+/* ventana modal */
+.modal{
+  position: fixed;
+  z-index: 999;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: var(--black-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 1s;
+}
+
+.modal-content{
+  position: relative;
+}
+
+.modal-close{
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.modal-close svg{
+  fill: var(--first-alpha-color);
+  width: 3rem;
+  height: 3rem;
+}
+
+
+.modal#merch-1:target, /* preguntar como hacer lo mismo para las 6 cards */
+.modal#merch-2:target, 
+.modal#merch-3:target, 
+.modal#merch-4:target, 
+.modal#merch-5:target,
+.modal#merch-6:target {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* seccion Historia */
+
+.influencia-article{
+  width: 100%;
+  margin: 1rem auto;
+  /* background-color: grey; */
+}
+
+.historia > article{
+  margin-bottom: 2rem;
+}
+
+.section{
+  padding: 2rem 1rem;
+}
+/* alineaciones texto */
+
+.text-left{
+  text-align: left;
+}
+
+.text-center{
+  text-align: center;
+}
+
+.text-right{
+  text-align: right;
+}
+
+@media screen and (min-width: 1024px) {
+  .text-lg-left{
+    text-align: left;
+  }
+  
+  .text-lg-center{
+    text-align: center;
+  }
+  
+  .text-lg-right{
+    text-align: right;
+  }
+}
+
+.full-lg-screen{
+  width: 100%;
+  min-height: 100vh;
+}
+
+
+.perfil-card{
+  margin: 1rem auto;
+  /* padding: 1rem; */
+  width: 100%;
+  height: 144px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.perfil-card >svg{
+  fill: #d90062;
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.perfil-card >small{
+  margin-top: -1rem;
+}
+
+.social-media a{
+  text-decoration: none;
+  padding: 0 1rem;
+}
+
+
+.social-media svg{
+  width: 2rem;
+  height: 2rem;
+}
+
+
+
+
+.perfil-form{
+  margin: 2rem auto;
+  padding: 1rem;
+  max-width: 800px;
+  
+}
+
+.perfil-form > * {   /* el * me ayuda a aplicar a todo */
+  padding: 0.5rem;
+  margin: 1rem auto;
+  display: block;
+  width: 100%;
+}
+
+.perfil-form input,
+.perfil-form textarea {
+  font-size: 0.85rem;
+}
+
+.perfil-form input {
+  border: 0;
+  padding-left: 0;
+  border-bottom: thin solid purple;
+}
+
+.perfil-form textarea {
+  border: thin solid purple;
+  resize: none; /* esta propiedad me saca el triangulo para darle mas tamaño al textarea */
+}
+.perfil-form input{
+  margin-top: 0;
+  cursor: pointer;
+  transition: all.5s ease-out;
+}
+
+.perfil-form input:hover{
+  opacity: .75;
+}
+
+
+.perfil-form *::placeholder {
+  color: goldenrod;
+}
+.contact-form-response{
+  padding: 1rem; 
+  width: 400px;
+  text-align: center;
+  background-color: gold;
+}
+
+
+.modal#enviado:target{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+@media screen and (min-width: 1024px) {
+  .perfil-form{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 1rem;
+  }
+
+  .perfil-form input,
+  .perfil-form textarea {
+    font-size: 1rem;
+}
+  .perfil-form textarea{
+    grid-column: span 2;
+}
+.footer{
+  margin-bottom: 0;
+  
+}
+
+}
+
+
+
+
+/* mas estilos */
+
+.box-shadow-1 {
+  box-shadow: 0.25rem 0.25rem 1rem rgba(0, 0, 0, 0.25);
+}
+
+
+/* footer */
+
+.footer{
+  text-align: center;
+  color: var(--white-color);
+  padding: 0.5rem;
+  background-color: purple;
+  /* margin-bottom: 4rem; */
+}
+
+
+
+
+
+  
+
+  

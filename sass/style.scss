@@ -1,13 +1,15 @@
+    @use "sass:map";
+    @use  "header";
+    @use "variables" as *;
+    
+    
+     
+    
+    
+    
 
-    $first-alpha-color: rgba(217, 0, 98, 0.75);
-    $white-color: #fff;
-    $black-color: rgba(0, 0, 0, 0.5); 
-    $max-widht: 1200px;
-    $header-height:4rem;
-    $second-color:#14192d;
-    $third-color:#e8e4d9;
-    $first-color:purple;
-  
+    
+
   
   /* :root {
     --first-color: #d90062;
@@ -39,12 +41,12 @@
       body {
         margin: 0;
         overflow-x: hidden;
-        color: $black-color;
+        color: map.get( $color, "black" );
       }
     }
     
     a{
-      color: $black-color;
+      color: map.get( $color, "black" );
       transition: all 0.5s ease;
       
       &:hover{
@@ -103,11 +105,11 @@
       background-position: center;
       background-attachment: fixed;
       transition: transform 2s;
+      &:hover{
+        transform:scale(1.10) ;
+      }
     }
   
-    .hero-image-lz:hover{
-      transform:scale(1.10) ;
-    }
     
   
     .hero-image-opaca{
@@ -117,14 +119,14 @@
       justify-content: center;
       align-items: center;
       text-align: center;
+      .hero-image-titulo{
+        font-size: 6.5vh;
+        color: #e8e4d9;
+      }
     }
   
   
   
-    .hero-image-titulo{
-      font-size: 6.5vh;
-      color: #e8e4d9;
-    }
     /* utilidades generales */
     
     .btn{
@@ -141,11 +143,12 @@
       background-color: #636363;
       background-image: linear-gradient(to bottom, purple, #000);
       text-transform: uppercase;
+      &:hover{
+        background-image: linear-gradient(to bottom, purple, #000);
+      }
     }
-  
-    .btn:hover{
-      background-image: linear-gradient(to bottom, purple, #000);
-    }
+
+
     
     
     .container{
@@ -174,20 +177,13 @@
       margin: 1rem auto;
       padding: 1rem;
       text-align: center;
+      & img {
+        margin-bottom: 1rem;
+      }
     }
-  
-  
-    .disco-card img {
-      margin-bottom: 1rem;
-    }
-  
-  
-  
-  
-  
-  
+
     /* header mobile */
-    .header{
+ /*    .header{
       position: fixed;
       left:0;
       bottom: 0;
@@ -195,14 +191,14 @@
       width: 100%;
       height: $header-height;
       background-color: $second-color;
-    }
+      & >.container{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem;
+      }
+    } */
   
-    .header >.container{
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem;
-    }
   
     @media screen and (min-width: 768px) {
   
@@ -292,32 +288,28 @@
       left: 0;
       bottom: $header-height;/* uso la misma medida que el header */
       width: 100%;
-      background-color: $first-color;
+      background-color: map.get( $color, "first");
       display: flex;
       flex-direction: column;
       opacity: 0;
       pointer-events: none;
       transition: opacity 0.5s ease;
-  }
-  
-  
-  .menu .esta-activo{
-    opacity: 1; 
-    pointer-events: auto;
-  }
-   
-  .menu a{
-      padding: 1rem;
-      font-size: 1.5rem;
-      font-weight: bold;
-      text-align: center;
-      text-decoration: none;
-      color: $first-color;
-  }
-  
-  .menu a:hover{
-      color: $third-color;
-      background-color: $first-color;
+      & .esta-activo{
+        opacity: 1; 
+        pointer-events: auto;
+      }
+      & a{
+          padding: 1rem;
+          font-size: 1.5rem;
+          font-weight: bold;
+          text-align: center;
+          text-decoration: none;
+          color: map.get( $color, "first");
+      }
+      & a:hover{
+          color: map.get( $color, "third" );
+          background-color: map.get( $color, "first");
+      }
   }
   
   @media screen and (min-width: 1024px) {
@@ -352,13 +344,13 @@
     width: 100%;
     margin: 0 auto;
     display: block;
+    & img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
   }
   
-  .merch-card img{
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
   
   .merch-card-info{
     position: absolute;/* le pongo absoluto para que este contenedor este dentro del padre */
@@ -366,8 +358,8 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: $first-alpha-color;
-    color: $white-color;
+    background-color: map.get( $color, "first-alpha");
+    color: map.get( $color, "white");
     padding: 1rem;
     opacity: 0; /* opacidad 0 para que se active en el estado hover */
     pointer-events: none; /* la desactivo para que se active solo en hover */
@@ -387,39 +379,37 @@
     max-width: 400px;
     display: flex;
     flex-direction: column;
-  }
-  .merch-modal h3{
-    border-bottom: medium solid purple;
-    padding: .5rem 0;
-    margin: 1rem 0;
+    & h3{
+      border-bottom: medium solid purple;
+      padding: .5rem 0;
+      margin: 1rem 0;
+    }
   }
   
   .merch-details{
     display: grid;
     grid-template-columns: 40% 60%; /* probar % hasta encontrar que quede bien jajaj*/
-    
-  }
-  
-  .merch-details b{
-    color: purple;
+    & b{
+      color: purple;
+    }
   }
   
   .merch-card-info > div{
-    border:thin solid $white-color;
+    border:thin solid map.get( $color, "white");
     padding: 1rem;
     width: 100%;
     height: 100%;
   }
   
   .menu-btn{ /* clase para el boton mobile */
-      background-color: $third-color;
-      outline: thin solid $second-color;
+      background-color: map.get( $color, "third" );
+      outline: thin solid map.get( $color, "second" );
       border: 0;/* para quitar el borde del boton */
       cursor: pointer;
   }
   
   .menu-btn svg{
-      fill: $first-color; /* me sirve el fill para pintar el interior de los iconos svg (preguntar si sirve para otro formato) */
+      fill: map.get( $color, "first"); /* me sirve el fill para pintar el interior de los iconos svg (preguntar si sirve para otro formato) */
   }
   
   
@@ -433,7 +423,7 @@
     right: 0;
     bottom: 0;
     left: 0;
-    background-color: $black-color;
+    background-color: map.get( $color, "black" );
     display: flex;
     justify-content: center;
     align-items: center;
@@ -450,13 +440,13 @@
     position: absolute;
     top: 1rem;
     right: 1rem;
+    & svg{
+      fill: map.get( $color, "first-alpha");
+      width: 3rem;
+      height: 3rem;
+    }
   }
   
-  .modal-close svg{
-    fill: $first-alpha-color;
-    width: 3rem;
-    height: 3rem;
-  }
   
   
   .modal#merch-1:target, /* preguntar como hacer lo mismo para las 6 cards */
@@ -527,13 +517,13 @@
     flex-direction: column;
     justify-content: space-around;
     align-items: center;
+    & >svg{
+      fill: #d90062;
+      width: 1.5rem;
+      height: 1.5rem;
+    }
   }
   
-  .perfil-card >svg{
-    fill: #d90062;
-    width: 1.5rem;
-    height: 1.5rem;
-  }
   
   .perfil-card >small{
     margin-top: -1rem;
@@ -542,30 +532,25 @@
   .social-media a{
     text-decoration: none;
     padding: 0 1rem;
+    & svg{
+      width: 2rem;
+      height: 2rem;
+    }
   }
-  
-  
-  .social-media svg{
-    width: 2rem;
-    height: 2rem;
-  }
-  
-  
-  
   
   .perfil-form{
     margin: 2rem auto;
     padding: 1rem;
     max-width: 800px;
     
+    & > * {   /* el * me ayuda a aplicar a todo */
+      padding: 0.5rem;
+      margin: 1rem auto;
+      display: block;
+      width: 100%;
+    }
   }
   
-  .perfil-form > * {   /* el * me ayuda a aplicar a todo */
-    padding: 0.5rem;
-    margin: 1rem auto;
-    display: block;
-    width: 100%;
-  }
   
   .perfil-form input,
   .perfil-form textarea {
@@ -644,7 +629,7 @@
   
   .footer{
     text-align: center;
-    color: $white-color;
+    color: map.get( $color, "white");
     padding: 0.5rem;
     background-color: purple;
     /* margin-bottom: 4rem; */

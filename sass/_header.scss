@@ -1,0 +1,19 @@
+
+@use "sass:map";
+@use "variables" as *;
+
+.header{
+    position: fixed;
+    left:0;
+    bottom: 0;
+    z-index: 999;
+    width: 100%;
+    height: $header-height;
+    background-color: map.get( $color, "second" );
+    & >.container{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+    }
+  }
